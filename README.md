@@ -2,4 +2,5 @@
 Simple login design.
 
 ## Sreenshot
-<img src="https://github.com/Esraa3293/login/assets/74279568/31e998e6-52f6-49dc-827b-b1e7c7a6d3db" width="30%" height="60%">
+![login](https://github.com/Esraa3293/login/assets/74279568/6c91b276-7b9d-4427-954b-e793fabb3453 | width=30% | height=60%)
+
