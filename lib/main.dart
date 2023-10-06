@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  var user = TextEditingController();
+  var password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +52,7 @@ class Login extends StatelessWidget {
                 height: 100,
               ),
               TextField(
+                controller: user,
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.only(
                     left: 10,
@@ -65,8 +75,9 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                controller: password,
+                decoration: const InputDecoration(
                   contentPadding: EdgeInsets.only(
                     left: 10,
                     top: 20,
@@ -91,7 +102,10 @@ class Login extends StatelessWidget {
                 alignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      user.clear();
+                      password.clear();
+                    },
                     child: const Text(
                       "CANCEL",
                       style: TextStyle(
@@ -101,7 +115,15 @@ class Login extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Home(
+                                    data: "UserName: ${user.text}",
+                                passdata: "Password: ${password.text}",
+                                  )));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey.shade100,
                       shape: RoundedRectangleBorder(
